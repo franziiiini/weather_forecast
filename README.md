@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Create a copy of `.env` as `.env.local` and add your WeatherAPI-key.
 
-Things you may want to cover:
+### Next Steps
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- request specs for forecast api call with mocked json respone
+- feature specs for user to see results
+- error handling if location is not found
+- caching for 30 min
+- indicate that result comes from the cache
