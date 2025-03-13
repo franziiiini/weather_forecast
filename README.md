@@ -5,7 +5,8 @@ to not commit the key publicly upon contributing to this project.
 
 ## Current state of art
 
-This app uses the WeatherAPI as a service to provide the requested weather data.
+This app uses the [WeatherAPI](https://www.weatherapi.com/) as a service to provide the requested
+weather data.
 It accepts different kind of address inputs and is free to use.
 
 This is a very basic setup that still needs further iterations, and more testing to improve the
