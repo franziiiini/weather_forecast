@@ -8,6 +8,7 @@ class WeatherApiClient
   end
 
   def mapped_weather_attributes
+    # store attributes as needed in a hash
     {
       location_name: location_name,
       current_temp: current_temp,
@@ -18,10 +19,12 @@ class WeatherApiClient
   end
 
   def parsed_response
+    # fetch data from API
     response = HTTParty.get(
       "https://api.weatherapi.com/v1/forecast.json?q=#{@location}&days=1&key=#{ENV["WEATHER_API"]}"
       )
-      # Error handling
+
+      # Error handling added here for errors such as:
       # {"error" => {"code" => 1006, "message" => "No matching location found."}}
 
       JSON.parse(response.body)
@@ -30,19 +33,11 @@ class WeatherApiClient
   private
 
   def location_name
+    city = parsed_response["location"]["name"]
+    region = parsed_response["location"]["region"]
+    country = parsed_response["location"]["country"]
+
     "#{city}, #{region}, #{country},"
-  end
-
-  def city
-    parsed_response["location"]["name"]
-  end
-
-  def region
-    parsed_response["location"]["region"]
-  end
-
-  def country
-    parsed_response["location"]["country"]
   end
 
   def current_temp

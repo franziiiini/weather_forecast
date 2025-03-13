@@ -2,16 +2,16 @@
 
 class ForecastsController < ApplicationController
   def index
-    return if params[:location].nil?
+    return if location_params.nil?
 
-    @weather_api_client = weather_api_client(params[:location])
+    @weather_api_client = WeatherApiClient.new(location_params)
     @weather_attributes = @weather_api_client.mapped_weather_attributes
   end
 
 
   private
 
-  def weather_api_client(location)
-    WeatherApiClient.new(location)
+  def location_params
+    params[:location]
   end
 end
